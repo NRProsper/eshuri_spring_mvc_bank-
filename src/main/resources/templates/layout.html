@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!--    <link rel="stylesheet" href=".././static/css/styles.css">-->
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="bg-gray-200">
+
+<div class="flex h-[100vh]">
+  <aside class="bg-blue-900/60 w-[300px] h-full">
+    <nav class="w-full">
+      <a th:each="link : ${links}"
+         th:href="@{${link.url}}"
+         class="text-white font-semibold text-xl py-5 px-6 hover:bg-blue-900 transition duration-300 capitalize block">
+        <span th:text="${link.name}"></span>
+      </a>
+    </nav>
+  </aside>
+  <main class="px-32 py-12 w-full">
+    <div th:replace="${content}"></div>
+  </main>
+</div>
+
+</body>
+</html>
