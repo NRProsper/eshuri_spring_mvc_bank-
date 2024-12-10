@@ -50,4 +50,10 @@ public class BankController {
         return "layout";
     }
 
+    @GetMapping("/profile")
+    public String profile(Model model) {
+        model.addAttribute("content", "profile.html");
+        return "layout";
+    }
+
 }
